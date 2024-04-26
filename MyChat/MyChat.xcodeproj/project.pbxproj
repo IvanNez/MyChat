@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		5454D7432BDBC672009E4685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D7422BDBC672009E4685 /* AppDelegate.swift */; };
 		5454D7452BDBC672009E4685 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D7442BDBC672009E4685 /* SceneDelegate.swift */; };
-		5454D7472BDBC672009E4685 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D7462BDBC672009E4685 /* ViewController.swift */; };
-		5454D74A2BDBC672009E4685 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5454D7492BDBC672009E4685 /* Base */; };
+		5454D7472BDBC672009E4685 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D7462BDBC672009E4685 /* AuthViewController.swift */; };
 		5454D74C2BDBC674009E4685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5454D74B2BDBC674009E4685 /* Assets.xcassets */; };
 		5454D74F2BDBC674009E4685 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5454D74E2BDBC674009E4685 /* Base */; };
+		5454D7572BDBD256009E4685 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D7562BDBD256009E4685 /* UIButton + Extension.swift */; };
+		5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D7582BDBD7EB009E4685 /* UIFont + Extension.swift */; };
+		5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */; };
+		5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */; };
+		5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5454D73F2BDBC672009E4685 /* MyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5454D7422BDBC672009E4685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5454D7442BDBC672009E4685 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5454D7462BDBC672009E4685 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5454D7492BDBC672009E4685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5454D7462BDBC672009E4685 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		5454D74B2BDBC674009E4685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5454D74E2BDBC674009E4685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5454D7502BDBC674009E4685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5454D7562BDBD256009E4685 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		5454D7582BDBD7EB009E4685 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,12 @@
 			children = (
 				5454D7422BDBC672009E4685 /* AppDelegate.swift */,
 				5454D7442BDBC672009E4685 /* SceneDelegate.swift */,
-				5454D7462BDBC672009E4685 /* ViewController.swift */,
-				5454D7482BDBC672009E4685 /* Main.storyboard */,
+				5454D7462BDBC672009E4685 /* AuthViewController.swift */,
+				5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */,
+				5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */,
+				5454D7582BDBD7EB009E4685 /* UIFont + Extension.swift */,
+				5454D7562BDBD256009E4685 /* UIButton + Extension.swift */,
+				5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */,
 				5454D74B2BDBC674009E4685 /* Assets.xcassets */,
 				5454D74D2BDBC674009E4685 /* LaunchScreen.storyboard */,
 				5454D7502BDBC674009E4685 /* Info.plist */,
@@ -127,7 +139,6 @@
 			files = (
 				5454D74C2BDBC674009E4685 /* Assets.xcassets in Resources */,
 				5454D74F2BDBC674009E4685 /* Base in Resources */,
-				5454D74A2BDBC672009E4685 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +149,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5454D7472BDBC672009E4685 /* ViewController.swift in Sources */,
+				5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */,
+				5454D7472BDBC672009E4685 /* AuthViewController.swift in Sources */,
 				5454D7432BDBC672009E4685 /* AppDelegate.swift in Sources */,
+				5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */,
+				5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */,
+				5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */,
 				5454D7452BDBC672009E4685 /* SceneDelegate.swift in Sources */,
+				5454D7572BDBD256009E4685 /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5454D7482BDBC672009E4685 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5454D7492BDBC672009E4685 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5454D74D2BDBC674009E4685 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,9 +305,9 @@
 				INFOPLIST_FILE = MyChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,9 +333,9 @@
 				INFOPLIST_FILE = MyChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
