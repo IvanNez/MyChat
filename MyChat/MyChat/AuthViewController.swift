@@ -34,6 +34,7 @@ class AuthViewController: UIViewController {
 // MARK: -- Layout
 private extension AuthViewController {
     func setupConstraints() {
+        googleButton.customizeGoogleButton()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         let googleView = ButtonFormView(label: googleLabel, button: googleButton)

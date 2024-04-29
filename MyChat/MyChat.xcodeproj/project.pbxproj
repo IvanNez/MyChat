@@ -22,6 +22,9 @@
 		54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */; };
 		54F09E192BDFB80700D01DD2 /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */; };
 		54F09E1B2BDFBD8F00D01DD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E1A2BDFBD8F00D01DD2 /* LoginViewController.swift */; };
+		54F09E1D2BDFC1EC00D01DD2 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E1C2BDFC1EC00D01DD2 /* SetupProfileViewController.swift */; };
+		54F09E1F2BDFC2FD00D01DD2 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E1E2BDFC2FD00D01DD2 /* AddPhotoView.swift */; };
+		54F09E212BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E202BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		54F09E1A2BDFBD8F00D01DD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		54F09E1C2BDFC1EC00D01DD2 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		54F09E1E2BDFC2FD00D01DD2 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		54F09E202BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 				5454D7462BDBC672009E4685 /* AuthViewController.swift */,
 				54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */,
 				54F09E1A2BDFBD8F00D01DD2 /* LoginViewController.swift */,
+				54F09E1C2BDFC1EC00D01DD2 /* SetupProfileViewController.swift */,
 				54F09E102BDFB0C900D01DD2 /* Extensions */,
 				5454D74B2BDBC674009E4685 /* Assets.xcassets */,
 				5454D74D2BDBC674009E4685 /* LaunchScreen.storyboard */,
@@ -92,6 +99,7 @@
 			children = (
 				54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */,
 				54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */,
+				54F09E1E2BDFC2FD00D01DD2 /* AddPhotoView.swift */,
 				54F09E112BDFB0D400D01DD2 /* UIKit */,
 			);
 			path = Extensions;
@@ -106,6 +114,7 @@
 				5454D7562BDBD256009E4685 /* UIButton + Extension.swift */,
 				5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */,
 				54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */,
+				54F09E202BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -184,10 +193,13 @@
 				54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */,
 				5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */,
 				5454D7472BDBC672009E4685 /* AuthViewController.swift in Sources */,
+				54F09E1D2BDFC1EC00D01DD2 /* SetupProfileViewController.swift in Sources */,
 				5454D7432BDBC672009E4685 /* AppDelegate.swift in Sources */,
 				54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */,
+				54F09E1F2BDFC2FD00D01DD2 /* AddPhotoView.swift in Sources */,
 				5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */,
 				5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */,
+				54F09E212BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift in Sources */,
 				5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */,
 				5454D7452BDBC672009E4685 /* SceneDelegate.swift in Sources */,
 				5454D7572BDBD256009E4685 /* UIButton + Extension.swift in Sources */,
