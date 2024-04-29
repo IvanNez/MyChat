@@ -17,6 +17,8 @@
 		5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */; };
 		5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */; };
 		5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */; };
+		54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */; };
+		54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
+		54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,16 +71,34 @@
 				5454D7422BDBC672009E4685 /* AppDelegate.swift */,
 				5454D7442BDBC672009E4685 /* SceneDelegate.swift */,
 				5454D7462BDBC672009E4685 /* AuthViewController.swift */,
-				5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */,
-				5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */,
-				5454D7582BDBD7EB009E4685 /* UIFont + Extension.swift */,
-				5454D7562BDBD256009E4685 /* UIButton + Extension.swift */,
-				5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */,
+				54F09E102BDFB0C900D01DD2 /* Extensions */,
 				5454D74B2BDBC674009E4685 /* Assets.xcassets */,
 				5454D74D2BDBC674009E4685 /* LaunchScreen.storyboard */,
 				5454D7502BDBC674009E4685 /* Info.plist */,
 			);
 			path = MyChat;
+			sourceTree = "<group>";
+		};
+		54F09E102BDFB0C900D01DD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */,
+				54F09E112BDFB0D400D01DD2 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		54F09E112BDFB0D400D01DD2 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5454D75C2BDBD9C5009E4685 /* UILabel + Extension.swift */,
+				5454D75A2BDBD889009E4685 /* UIColor + Extension.swift */,
+				5454D7582BDBD7EB009E4685 /* UIFont + Extension.swift */,
+				5454D7562BDBD256009E4685 /* UIButton + Extension.swift */,
+				5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */,
+				54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +174,13 @@
 				5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */,
 				5454D7472BDBC672009E4685 /* AuthViewController.swift in Sources */,
 				5454D7432BDBC672009E4685 /* AppDelegate.swift in Sources */,
+				54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */,
 				5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */,
 				5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */,
 				5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */,
 				5454D7452BDBC672009E4685 /* SceneDelegate.swift in Sources */,
 				5454D7572BDBD256009E4685 /* UIButton + Extension.swift in Sources */,
+				54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
