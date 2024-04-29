@@ -19,6 +19,8 @@
 		5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */; };
 		54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */; };
 		54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */; };
+		54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */; };
+		54F09E192BDFB80700D01DD2 /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		5454D75E2BDBDA1D009E4685 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
+		54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 				5454D7422BDBC672009E4685 /* AppDelegate.swift */,
 				5454D7442BDBC672009E4685 /* SceneDelegate.swift */,
 				5454D7462BDBC672009E4685 /* AuthViewController.swift */,
+				54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */,
 				54F09E102BDFB0C900D01DD2 /* Extensions */,
 				5454D74B2BDBC674009E4685 /* Assets.xcassets */,
 				5454D74D2BDBC674009E4685 /* LaunchScreen.storyboard */,
@@ -83,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */,
+				54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */,
 				54F09E112BDFB0D400D01DD2 /* UIKit */,
 			);
 			path = Extensions;
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F09E192BDFB80700D01DD2 /* OneLineTextField.swift in Sources */,
+				54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */,
 				5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */,
 				5454D7472BDBC672009E4685 /* AuthViewController.swift in Sources */,
 				5454D7432BDBC672009E4685 /* AppDelegate.swift in Sources */,

@@ -27,9 +27,9 @@ extension UIButton {
         
         if isShadow {
             self.layer.shadowColor = UIColor.black.cgColor
-            self.layer.shadowRadius = 4
-            self.layer.shadowOpacity = 2
-            self.layer.shadowOffset = CGSize(width: 0, height: 4)
+            self.layer.shadowRadius = 2
+            self.layer.shadowOpacity = 1
+            self.layer.shadowOffset = CGSize(width: 0, height: 2)
         }
     }
 }
