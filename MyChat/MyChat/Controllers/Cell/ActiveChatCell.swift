@@ -8,10 +8,7 @@
 import Foundation
 import UIKit
 
-protocol SelfConfiguringCell {
-    static var reuseId: String { get }
-    func configure(with value: MChat)
-}
+
 
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     
@@ -19,7 +16,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     let friendImageView = UIImageView()
     let friendName = UILabel(text: "User name", font: .laoSangamMN20())
     let lastMessage = UILabel(text: "How are you ?", font: .laoSangamMN18())
-    let gradientView = UIView()
+    let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: UIColor(red: 201/255.0, green: 161/255.0, blue: 240/255.0, alpha: 1/1.0), endColor: UIColor(red: 122/255.0, green: 178/255.0, blue: 235/255.0, alpha: 1/1.0))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +28,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         setupConstraints()
         self.backgroundColor = .white
         self.layer.cornerRadius = 4
