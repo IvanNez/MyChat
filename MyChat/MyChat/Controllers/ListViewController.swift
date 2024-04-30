@@ -67,7 +67,7 @@ private extension ListViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .mainWhite()
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
+        collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2")
         
         view.addSubview(collectionView)
@@ -86,10 +86,9 @@ private extension ListViewController {
                 return self.createActiveChats()
             case .waitingChats:
                 return self.createWaitingChats()
+                
             }
-            
         }
-        
         return layout
     }
     
@@ -133,6 +132,12 @@ extension ListViewController {
         return section
     }
     
+    func configure<T: SelfConfiguringCell>(cellType: T.Type, with value: MChat, for indexPath: IndexPath) -> T {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else { fatalError("Unable to dequeue \(cellType)")}
+        cell.configure(with: value)
+        return cell
+    }
+    
     func createDataSource() {
         dataSourse = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else {
@@ -141,9 +146,7 @@ extension ListViewController {
             
             switch section {
             case .activeChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-                cell.backgroundColor = .systemBlue
-                return cell
+                return self.configure(cellType: ActiveChatCell.self, with: itemIdentifier, for: indexPath)
             case .waitingChats:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid2", for: indexPath)
                 cell.backgroundColor = .systemRed
