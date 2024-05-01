@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func downloadScene(windowScene: UIWindowScene) {
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ChatRequestViewController()
+        window.rootViewController = MainTabBarController()
         self.window = window
         window.makeKeyAndVisible()
     }
