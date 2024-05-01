@@ -21,6 +21,9 @@
 		545A016C2BE1047000F0E976 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545A016B2BE1047000F0E976 /* GradientView.swift */; };
 		546443392BE2517600450A76 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546443382BE2517600450A76 /* UserCell.swift */; };
 		5464433B2BE252A300450A76 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5464433A2BE252A300450A76 /* UIViewController + Extension.swift */; };
+		5464433D2BE2598D00450A76 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5464433C2BE2598D00450A76 /* ProfileViewController.swift */; };
+		5464433F2BE2634000450A76 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5464433E2BE2634000450A76 /* InsertableTextField.swift */; };
+		546443412BE2653200450A76 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546443402BE2653200450A76 /* UIView + Extension.swift */; };
 		546B3CF22BE23DB400CDC881 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B3CF12BE23DB400CDC881 /* MUser.swift */; };
 		546B3CF42BE23DBA00CDC881 /* MChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B3CF32BE23DBA00CDC881 /* MChat.swift */; };
 		5489995C2BE0EAD400C4A7F4 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5489995A2BE0EAD400C4A7F4 /* waitingChats.json */; };
@@ -60,6 +63,9 @@
 		545A016B2BE1047000F0E976 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		546443382BE2517600450A76 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		5464433A2BE252A300450A76 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		5464433C2BE2598D00450A76 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5464433E2BE2634000450A76 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
+		546443402BE2653200450A76 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		546B3CF12BE23DB400CDC881 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		546B3CF32BE23DBA00CDC881 /* MChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MChat.swift; sourceTree = "<group>"; };
 		5489995A2BE0EAD400C4A7F4 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				54F09E182BDFB80700D01DD2 /* OneLineTextField.swift */,
 				54F09E1E2BDFC2FD00D01DD2 /* AddPhotoView.swift */,
 				5489995E2BE0EB2200C4A7F4 /* Bundle-Decodable.swift */,
+				5464433E2BE2634000450A76 /* InsertableTextField.swift */,
 				545A016B2BE1047000F0E976 /* GradientView.swift */,
 				54F09E112BDFB0D400D01DD2 /* UIKit */,
 			);
@@ -188,6 +195,7 @@
 				54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */,
 				54F09E202BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift */,
 				5464433A2BE252A300450A76 /* UIViewController + Extension.swift */,
+				546443402BE2653200450A76 /* UIView + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 				54F09E222BDFD0E100D01DD2 /* ListViewController.swift */,
 				54F09E262BDFD15200D01DD2 /* MainTabBarController.swift */,
 				54F09E282BDFD18900D01DD2 /* PeopleViewController.swift */,
+				5464433C2BE2598D00450A76 /* ProfileViewController.swift */,
 				549287FE2BE1159800DD61EC /* Header */,
 				545A01682BE0F95D00F0E976 /* Cell */,
 			);
@@ -298,14 +307,17 @@
 				546B3CF22BE23DB400CDC881 /* MUser.swift in Sources */,
 				545A016A2BE0F97900F0E976 /* ActiveChatCell.swift in Sources */,
 				5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */,
+				5464433F2BE2634000450A76 /* InsertableTextField.swift in Sources */,
 				54F09E292BDFD18900D01DD2 /* PeopleViewController.swift in Sources */,
 				5454D7472BDBC672009E4685 /* AuthViewController.swift in Sources */,
+				5464433D2BE2598D00450A76 /* ProfileViewController.swift in Sources */,
 				5489995F2BE0EB2200C4A7F4 /* Bundle-Decodable.swift in Sources */,
 				54F09E1D2BDFC1EC00D01DD2 /* SetupProfileViewController.swift in Sources */,
 				5454D7432BDBC672009E4685 /* AppDelegate.swift in Sources */,
 				54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */,
 				54F09E1F2BDFC2FD00D01DD2 /* AddPhotoView.swift in Sources */,
 				5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */,
+				546443412BE2653200450A76 /* UIView + Extension.swift in Sources */,
 				5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */,
 				54F09E212BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift in Sources */,
 				546443392BE2517600450A76 /* UserCell.swift in Sources */,
