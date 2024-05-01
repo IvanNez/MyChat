@@ -57,7 +57,7 @@ private extension PeopleViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .mainWhite()
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
+        collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
         
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         
@@ -118,9 +118,7 @@ private extension PeopleViewController  {
              
              switch section {
              case .users:
-                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-                 cell.backgroundColor = .systemBlue
-                 return cell
+                 return self.configure(collectionView: collectionView, cellType: UserCell.self, with: itemIdentifier, for: indexPath)
              }
          })
          

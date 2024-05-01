@@ -145,11 +145,7 @@ extension ListViewController {
         return sectionHeader
     }
     
-    func configure<T: SelfConfiguringCell>(cellType: T.Type, with value: MChat, for indexPath: IndexPath) -> T {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else { fatalError("Unable to dequeue \(cellType)")}
-        cell.configure(with: value)
-        return cell
-    }
+    
     
     func createDataSource() {
         dataSourse = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
@@ -159,9 +155,10 @@ extension ListViewController {
             
             switch section {
             case .activeChats:
-                return self.configure(cellType: ActiveChatCell.self, with: itemIdentifier, for: indexPath)
+                return self.configure(collectionView: collectionView, cellType: ActiveChatCell.self, with: itemIdentifier, for: indexPath)
+
             case .waitingChats:
-                return self.configure(cellType: WaitingChatCell.self, with: itemIdentifier, for: indexPath)
+                return self.configure(collectionView: collectionView, cellType: WaitingChatCell.self, with: itemIdentifier, for: indexPath)
             }
         })
         
