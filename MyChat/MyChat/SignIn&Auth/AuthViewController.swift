@@ -8,7 +8,7 @@
 import UIKit
 
 class AuthViewController: UIViewController {
-   
+    
     let logoImageView = UIImageView(image: UIImage(resource: .logo), contentMode: .scaleAspectFit)
     
     let googleLabel = UILabel(text: "Get started with")
@@ -18,6 +18,9 @@ class AuthViewController: UIViewController {
     let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
     let emailButton = UIButton(title: "Email", titleColor: .white, backgroundColor: .buttonDark())
     let loginButton = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white, isShadow: true)
+    
+    let signUpVC = SignUpViewController()
+    let loginVC = LoginViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,14 +71,23 @@ private extension AuthViewController {
 
 private extension AuthViewController {
     @objc func emailButtonTapped() {
-        let signUpVC = SignUpViewController()
+        signUpVC.dismisVC = { res in
+            if res {
+                self.present(self.loginVC, animated: true)
+            }
+        }
         present(signUpVC, animated: true)
     }
     
     @objc func loginButtonTapped() {
-        let loginVC = LoginViewController()
+        loginVC.dismisVC = { res in
+            if res {
+                self.present(self.signUpVC, animated: true)
+            }
+        }
         present(loginVC, animated: true)
     }
+    
 }
 
 #Preview("ViewController"){

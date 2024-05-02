@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     let passwordTextField = OneLineTextField(font: .avenir20())
     
     let loginButton = UIButton(title: "Login", titleColor: .white, backgroundColor: .buttonDark())
-    lazy var signInButton: UIButton = {
+    lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.buttonRed(), for: .normal)
@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    var dismisVC: ((Bool) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class LoginViewController: UIViewController {
 private extension LoginViewController {
     
     func setupButton() {
-        signInButton.addTarget(self, action: #selector(signInButtonButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
@@ -60,8 +61,8 @@ private extension LoginViewController {
         
         let stackView = UIStackView(arrangedSubviews: [loginWithView, orLabel, emailStackView, passwordStackView, loginButton], axis: .vertical, spacing: 40)
         
-        signInButton.contentHorizontalAlignment = .leading
-        let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, signInButton], axis: .horizontal, spacing: 10)
+        signUpButton.contentHorizontalAlignment = .leading
+        let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, signUpButton], axis: .horizontal, spacing: 10)
         bottomStackView.alignment = .firstBaseline
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -102,8 +103,10 @@ private extension LoginViewController {
 // MARK: -- OBJC
 
 private extension LoginViewController {
-    @objc func signInButtonButtonTapped() {
-        print(#function)
+    @objc func signUpButtonButtonTapped() {
+        dismiss(animated: true) {
+            self.dismisVC?(true)
+        }
     }
     
     @objc func loginButtonTapped() {

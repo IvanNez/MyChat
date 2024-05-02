@@ -28,6 +28,8 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
+    var dismisVC: ((Bool) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -101,8 +103,7 @@ private extension SignUpViewController {
         AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordTextField.text) { result in
             switch result {
             case .success(let user):
-                self.showAlert(with: "Успешно", and: "Вы зарегестрированы")
-                print(user.email)
+                self.present(SetupProfileViewController(), animated: true)
             case .failure(let error):
                 self.showAlert(with: "Ошибка", and: error.localizedDescription)
             }
@@ -110,7 +111,9 @@ private extension SignUpViewController {
     }
     
     @objc func loginButtonTapped() {
-        print(#function)
+        self.dismiss(animated: true) {
+            self.dismisVC?(true)
+        }
     }
 }
 

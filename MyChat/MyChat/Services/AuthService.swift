@@ -22,8 +22,6 @@ class AuthService {
             return
         }
         
-        print(password)
-        print(confirmPassword)
         guard password!.lowercased() == confirmPassword!.lowercased() else {
             completion(.failure(AuthError.passwordsNotMatched))
             return
