@@ -28,11 +28,17 @@ class AuthViewController: UIViewController {
     
     func setup() {
         setupConstraints()
+        setupButton()
     }
 }
 
 // MARK: -- Layout
 private extension AuthViewController {
+    func setupButton() {
+        emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
     func setupConstraints() {
         googleButton.customizeGoogleButton()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +64,19 @@ private extension AuthViewController {
     }
 }
 
+// MARK: -- OBJC
+
+private extension AuthViewController {
+    @objc func emailButtonTapped() {
+        let signUpVC = SignUpViewController()
+        present(signUpVC, animated: true)
+    }
+    
+    @objc func loginButtonTapped() {
+        let loginVC = LoginViewController()
+        present(loginVC, animated: true)
+    }
+}
 
 #Preview("ViewController"){
     AuthViewController()

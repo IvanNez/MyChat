@@ -47,6 +47,7 @@
 		54F09E232BDFD0E100D01DD2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E222BDFD0E100D01DD2 /* ListViewController.swift */; };
 		54F09E272BDFD15200D01DD2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E262BDFD15200D01DD2 /* MainTabBarController.swift */; };
 		54F09E292BDFD18900D01DD2 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E282BDFD18900D01DD2 /* PeopleViewController.swift */; };
+		54F4FD1E2BE38EC000A1910D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F4FD1D2BE38EC000A1910D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		54F09E222BDFD0E100D01DD2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		54F09E262BDFD15200D01DD2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		54F09E282BDFD18900D01DD2 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		54F4FD1D2BE38EC000A1910D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,7 @@
 			children = (
 				5454D7422BDBC672009E4685 /* AppDelegate.swift */,
 				5454D7442BDBC672009E4685 /* SceneDelegate.swift */,
-				546B3CF52BE23E5400CDC881 /* Model */,
+				54F4FD1C2BE38EA600A1910D /* Services */,
 				54F09E242BDFD11B00D01DD2 /* SignIn&Auth */,
 				54F09E252BDFD12A00D01DD2 /* Controllers */,
 				549287F92BE10E2E00DD61EC /* Protocols */,
@@ -230,6 +232,15 @@
 				545A01682BE0F95D00F0E976 /* Cell */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		54F4FD1C2BE38EA600A1910D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				546B3CF52BE23E5400CDC881 /* Model */,
+				54F4FD1D2BE38EC000A1910D /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +354,7 @@
 				5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */,
 				5454D7452BDBC672009E4685 /* SceneDelegate.swift in Sources */,
 				5454D7572BDBD256009E4685 /* UIButton + Extension.swift in Sources */,
+				54F4FD1E2BE38EC000A1910D /* AuthService.swift in Sources */,
 				54F09E1B2BDFBD8F00D01DD2 /* LoginViewController.swift in Sources */,
 				54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */,
 			);
