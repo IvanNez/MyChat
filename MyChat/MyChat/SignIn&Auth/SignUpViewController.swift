@@ -98,7 +98,7 @@ private extension SignUpViewController {
 // MARK: -- OBJC
 private extension SignUpViewController {
     @objc func signUpButtonTapped() {
-        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: passwordTextField.text) { result in
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordTextField.text) { result in
             switch result {
             case .success(let user):
                 self.showAlert(with: "Успешно", and: "Вы зарегестрированы")

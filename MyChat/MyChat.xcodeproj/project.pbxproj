@@ -48,6 +48,8 @@
 		54F09E272BDFD15200D01DD2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E262BDFD15200D01DD2 /* MainTabBarController.swift */; };
 		54F09E292BDFD18900D01DD2 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E282BDFD18900D01DD2 /* PeopleViewController.swift */; };
 		54F4FD1E2BE38EC000A1910D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F4FD1D2BE38EC000A1910D /* AuthService.swift */; };
+		54F4FD202BE3987500A1910D /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F4FD1F2BE3987500A1910D /* Validators.swift */; };
+		54F4FD222BE399E800A1910D /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F4FD212BE399E800A1910D /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		54F09E262BDFD15200D01DD2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		54F09E282BDFD18900D01DD2 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		54F4FD1D2BE38EC000A1910D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		54F4FD1F2BE3987500A1910D /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		54F4FD212BE399E800A1910D /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				54F09E252BDFD12A00D01DD2 /* Controllers */,
 				549287F92BE10E2E00DD61EC /* Protocols */,
 				54F09E102BDFB0C900D01DD2 /* Extensions */,
+				547473B42BE39FBE00B13F97 /* Helpers */,
 				5454D74B2BDBC674009E4685 /* Assets.xcassets */,
 				5489995B2BE0EAD400C4A7F4 /* activeChats.json */,
 				549287FC2BE1158100DD61EC /* users.json */,
@@ -161,6 +166,15 @@
 				546B3CF12BE23DB400CDC881 /* MUser.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		547473B42BE39FBE00B13F97 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				54F4FD1F2BE3987500A1910D /* Validators.swift */,
+				54F4FD212BE399E800A1910D /* AuthError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		549287F92BE10E2E00DD61EC /* Protocols */ = {
@@ -329,8 +343,10 @@
 				549287FB2BE10FC800DD61EC /* SectionHeader.swift in Sources */,
 				545A016C2BE1047000F0E976 /* GradientView.swift in Sources */,
 				54F09E272BDFD15200D01DD2 /* MainTabBarController.swift in Sources */,
+				54F4FD222BE399E800A1910D /* AuthError.swift in Sources */,
 				54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */,
 				546B3CF22BE23DB400CDC881 /* MUser.swift in Sources */,
+				54F4FD202BE3987500A1910D /* Validators.swift in Sources */,
 				545A016A2BE0F97900F0E976 /* ActiveChatCell.swift in Sources */,
 				5454D7592BDBD7EB009E4685 /* UIFont + Extension.swift in Sources */,
 				5464433F2BE2634000450A76 /* InsertableTextField.swift in Sources */,
