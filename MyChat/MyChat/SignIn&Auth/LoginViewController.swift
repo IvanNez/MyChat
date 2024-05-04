@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     let passwordTextField = OneLineTextField(font: .avenir20())
     
     let loginButton = UIButton(title: "Login", titleColor: .white, backgroundColor: .buttonDark())
-    lazy var signInButton: UIButton = {
+    lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.buttonRed(), for: .normal)
@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    var dismisVC: ((Bool) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,21 @@ class LoginViewController: UIViewController {
     }
     
     func setup() {
+        view.backgroundColor = .white
         setupConstraint()
+        setupButton()
     }
     
 }
 
 // MARK: -- Layer
 private extension LoginViewController {
+    
+    func setupButton() {
+        signUpButton.addTarget(self, action: #selector(signUpButtonButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
     func setupConstraint() {
         googleButton.customizeGoogleButton()
         let loginWithView = ButtonFormView(label: loginWithLabel, button: googleButton)
@@ -52,8 +61,8 @@ private extension LoginViewController {
         
         let stackView = UIStackView(arrangedSubviews: [loginWithView, orLabel, emailStackView, passwordStackView, loginButton], axis: .vertical, spacing: 40)
         
-        signInButton.contentHorizontalAlignment = .leading
-        let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, signInButton], axis: .horizontal, spacing: 10)
+        signUpButton.contentHorizontalAlignment = .leading
+        let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, signUpButton], axis: .horizontal, spacing: 10)
         bottomStackView.alignment = .firstBaseline
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -67,10 +76,11 @@ private extension LoginViewController {
         NSLayoutConstraint.activate([
             loginButton.heightAnchor.constraint(equalToConstant: 60),
             
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100
+                                             ),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 80),
+            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 50),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
@@ -78,6 +88,36 @@ private extension LoginViewController {
             bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
         ])
+    }
+    
+    func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(ok)
+        
+        present(alert, animated: true)
+    }
+}
+
+// MARK: -- OBJC
+
+private extension LoginViewController {
+    @objc func signUpButtonButtonTapped() {
+        dismiss(animated: true) {
+            self.dismisVC?(true)
+        }
+    }
+    
+    @objc func loginButtonTapped() {
+        AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { result in
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "Успешно!", and: "Вы авторизованны")
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        }
     }
 }
 

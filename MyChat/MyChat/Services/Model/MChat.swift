@@ -2,10 +2,9 @@
 //  MChat.swift
 //  MyChat
 //
-//  Created by Иван Незговоров on 01.05.2024.
+//  Created by Иван Незговоров on 04.05.2024.
 //
 
-import Foundation
 import UIKit
 
 struct MChat: Hashable, Decodable {

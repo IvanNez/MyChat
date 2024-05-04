@@ -28,6 +28,8 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
+    var dismisVC: ((Bool) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -36,11 +38,17 @@ class SignUpViewController: UIViewController {
     func setup() {
         view.backgroundColor = .white
         setupConstraints()
+        setupButton()
     }
 }
 
 // MARK: -- Layout
 private extension SignUpViewController {
+    
+    func setupButton() {
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
   
     func setupConstraints() {
         let emailStackView = UIStackView(arrangedSubviews: [emailLabel,emailTextField], axis: .vertical, spacing: 0)
@@ -65,7 +73,7 @@ private extension SignUpViewController {
         NSLayoutConstraint.activate([
             signUpButton.heightAnchor.constraint(equalToConstant: 60),
             
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor,constant: 160),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor,constant: 100),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 160),
@@ -77,6 +85,35 @@ private extension SignUpViewController {
             bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
         ])
+    }
+    
+    func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(ok)
+        
+        present(alert, animated: true)
+    }
+}
+
+// MARK: -- OBJC
+private extension SignUpViewController {
+    @objc func signUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordTextField.text) { result in
+            switch result {
+            case .success(let user):
+                self.present(SetupProfileViewController(currentUser: user), animated: true)
+            case .failure(let error):
+                self.showAlert(with: "Ошибка", and: error.localizedDescription)
+            }
+        }
+    }
+    
+    @objc func loginButtonTapped() {
+        self.dismiss(animated: true) {
+            self.dismisVC?(true)
+        }
     }
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 
 class AuthViewController: UIViewController {
-   
+    
     let logoImageView = UIImageView(image: UIImage(resource: .logo), contentMode: .scaleAspectFit)
     
     let googleLabel = UILabel(text: "Get started with")
@@ -19,6 +19,9 @@ class AuthViewController: UIViewController {
     let emailButton = UIButton(title: "Email", titleColor: .white, backgroundColor: .buttonDark())
     let loginButton = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white, isShadow: true)
     
+    let signUpVC = SignUpViewController()
+    let loginVC = LoginViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,11 +31,17 @@ class AuthViewController: UIViewController {
     
     func setup() {
         setupConstraints()
+        setupButton()
     }
 }
 
 // MARK: -- Layout
 private extension AuthViewController {
+    func setupButton() {
+        emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
     func setupConstraints() {
         googleButton.customizeGoogleButton()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +67,28 @@ private extension AuthViewController {
     }
 }
 
+// MARK: -- OBJC
+
+private extension AuthViewController {
+    @objc func emailButtonTapped() {
+        signUpVC.dismisVC = { res in
+            if res {
+                self.present(self.loginVC, animated: true)
+            }
+        }
+        present(signUpVC, animated: true)
+    }
+    
+    @objc func loginButtonTapped() {
+        loginVC.dismisVC = { res in
+            if res {
+                self.present(self.signUpVC, animated: true)
+            }
+        }
+        present(loginVC, animated: true)
+    }
+    
+}
 
 #Preview("ViewController"){
     AuthViewController()

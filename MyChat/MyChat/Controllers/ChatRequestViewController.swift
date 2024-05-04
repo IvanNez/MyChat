@@ -42,9 +42,10 @@ private extension ChatRequestViewController {
         
         denyButton.layer.borderWidth = 1.2
         denyButton.layer.borderColor = UIColor(red: 213/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1/1.0).cgColor
-        
+         
         containerView.backgroundColor = .mainWhite()
         containerView.layer.cornerRadius = 30
+        
     }
     
     func setupConstraints() {
