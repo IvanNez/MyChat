@@ -2,16 +2,28 @@
 //  MUser.swift
 //  MyChat
 //
-//  Created by Иван Незговоров on 01.05.2024.
+//  Created by Иван Незговоров on 04.05.2024.
 //
 
-import Foundation
 import UIKit
 
 struct MUser: Hashable, Decodable {
     var username: String
+    var email: String
     var avatarStringURL: String
-    var id: Int
+    var description: String
+    var sex: String
+    var id: String
+    
+    var representation: [String: Any] {
+        var rep = ["username": username]
+        rep["email"] = email
+        rep["avatarStringURL"] = avatarStringURL
+        rep["description"] = description
+        rep["sex"] = sex
+        rep["uid"] = id
+        return rep
+    }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -22,9 +34,11 @@ struct MUser: Hashable, Decodable {
     }
     
     func contains(filter: String?) -> Bool {
-        guard let filter else { return true }
-        if filter.isEmpty  { return true }
-        let lowercaseFilter = filter.lowercased()
-        return username.lowercased().contains(lowercaseFilter)
+        guard let filter = filter else { return true }
+        if filter.isEmpty { return true }
+        let lowercasedFilter = filter.lowercased()
+        return username.lowercased().contains(lowercasedFilter)
     }
 }
+
+

@@ -7,10 +7,14 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 class PeopleViewController: UIViewController {
     
     let users = Bundle.main.decode([MUser].self, from: "users.json")
+//    let users = [MUser]()
+//    private var usersListener: ListenerRegistration?
+    
     var collectionView: UICollectionView! = nil
     var dataSourse: UICollectionViewDiffableDataSource<Section, MUser>?
     
@@ -24,11 +28,26 @@ class PeopleViewController: UIViewController {
         }
     }
     
+//    private let currentUser: MUser
+//    
+//    init(currentUser: MUser) {
+//        self.currentUser = currentUser
+//        super.init(nibName: nil, bundle: nil)
+//        title = currentUser.username
+//    }
+    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
+//    deinit {
+//        usersListener?.remove()
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setup()
-        print(users)
     }
     
     func setup() {

@@ -45,6 +45,7 @@ private extension ChatRequestViewController {
          
         containerView.backgroundColor = .mainWhite()
         containerView.layer.cornerRadius = 30
+        
     }
     
     func setupConstraints() {
