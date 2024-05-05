@@ -99,7 +99,9 @@ private extension SetupProfileViewController {
                                                 sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { result in
             switch result {
             case .success(let user):
-                self.present(MainTabBarController(), animated: true)
+                let mainTabBar = MainTabBarController(currentUser: user)
+                mainTabBar.modalPresentationStyle = .fullScreen
+                self.present(mainTabBar, animated: true)
             case .failure(let error):
                 print(error.localizedDescription)
             }

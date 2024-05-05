@@ -29,17 +29,17 @@ class PeopleViewController: UIViewController {
         }
     }
     
-//    private let currentUser: MUser
-//    
-//    init(currentUser: MUser) {
-//        self.currentUser = currentUser
-//        super.init(nibName: nil, bundle: nil)
-//        title = currentUser.username
-//    }
+    private let currentUser: MUser
     
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 //    deinit {
 //        usersListener?.remove()
