@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -41,8 +42,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func downloadScene(windowScene: UIWindowScene) {
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = AuthViewController()
         self.window = window
+        
+        if let user = Auth.auth().currentUser {
+            FirestoreService.shared.getUserData(user: user) { result in
+                switch result {
+                    
+                case .success(let user):
+                    let mainTabBar = MainTabBarController(currentUser: user)
+                    mainTabBar.modalPresentationStyle = .fullScreen
+                    self.window?.rootViewController = mainTabBar
+                case .failure(let error):
+                    self.window?.rootViewController = AuthViewController()
+                }
+            }
+        } else {
+            window.rootViewController = AuthViewController()
+        }
+        
         window.makeKeyAndVisible()
     }
 

@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 import FirebaseFirestore
+import Firebase
 
 class PeopleViewController: UIViewController {
     
-    let users = Bundle.main.decode([MUser].self, from: "users.json")
-//    let users = [MUser]()
+//    let users = Bundle.main.decode([MUser].self, from: "users.json")
+    let users = [MUser]()
 //    private var usersListener: ListenerRegistration?
     
     var collectionView: UICollectionView! = nil
@@ -28,17 +29,17 @@ class PeopleViewController: UIViewController {
         }
     }
     
-//    private let currentUser: MUser
-//    
-//    init(currentUser: MUser) {
-//        self.currentUser = currentUser
-//        super.init(nibName: nil, bundle: nil)
-//        title = currentUser.username
-//    }
+    private let currentUser: MUser
     
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 //    deinit {
 //        usersListener?.remove()
@@ -51,6 +52,7 @@ class PeopleViewController: UIViewController {
     }
     
     func setup() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(signOutButtonTapped))
         setupSearchBar()
         setupCollectionView()
         createDataSourse()
@@ -167,6 +169,23 @@ private extension PeopleViewController  {
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
+    }
+}
+
+// MARK: -- OBJC
+private extension PeopleViewController {
+    @objc func signOutButtonTapped() {
+        let alert = UIAlertController(title: nil, message: "Are you sure u want to sign out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Sign out", style: .destructive, handler: { _ in
+            do {
+                try Auth.auth().signOut()
+                UIApplication.shared.keyWindow?.rootViewController = AuthViewController()
+            } catch {
+                print("Error signing out: \(error.localizedDescription)")
+            }
+        }))
+        present(alert, animated: true)
     }
 }
 
