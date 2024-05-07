@@ -10,7 +10,7 @@ import Firebase
 
 class SetupProfileViewController: UIViewController {
 
-    let fillImageView = AddPhotoView()
+    let fullImageView = AddPhotoView()
     
     let welcomeLabel = UILabel(text: "Set up profile!", font: .avenir26())
     let fullNameLabel = UILabel(text: "Full name")
@@ -59,6 +59,7 @@ private extension SetupProfileViewController {
     
     func customizeElements() {
         goToChatsButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
+        fullImageView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
     
     
@@ -69,12 +70,12 @@ private extension SetupProfileViewController {
         
         let stackView = UIStackView(arrangedSubviews: [fullNameStackView, aboutMeStackView, sextackView, goToChatsButton], axis: .vertical, spacing: 40)
         
-        fillImageView.translatesAutoresizingMaskIntoConstraints = false
+        fullImageView.translatesAutoresizingMaskIntoConstraints = false
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(welcomeLabel)
-        view.addSubview(fillImageView)
+        view.addSubview(fullImageView)
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -83,10 +84,10 @@ private extension SetupProfileViewController {
             welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            fillImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40),
-            fillImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40),
+            fullImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            stackView.topAnchor.constraint(equalTo: fillImageView.bottomAnchor, constant: 40),
+            stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 40),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
         ])
@@ -95,11 +96,18 @@ private extension SetupProfileViewController {
 
 // MARK: -- OBJC
 private extension SetupProfileViewController {
+    @objc func plusButtonTapped() {
+        let imagePickeController = UIImagePickerController()
+        imagePickeController.delegate = self
+        imagePickeController.sourceType = .photoLibrary
+        present(imagePickeController, animated: true)
+    }
+    
     @objc func goToChatsButtonTapped() {
         FirestoreService.shared.saveProfileWith(id: currentUser.uid,
                                                 email: currentUser.email!,
                                                 username: fullNameTextField.text,
-                                                avatarImageString: nil,
+                                                avatarImage: fullImageView.circleImageView.image,
                                                 description: aboutMeTextField.text,
                                                 sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { result in
             switch result {
@@ -108,9 +116,22 @@ private extension SetupProfileViewController {
                 mainTabBar.modalPresentationStyle = .fullScreen
                 self.present(mainTabBar, animated: true)
             case .failure(let error):
+                let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
+                self.present(alert, animated: true)
                 print(error.localizedDescription)
             }
         }
+    }
+}
+
+// MARK: -- UINavigationControllerDelegate, UIImagePickerControllerDelegate
+extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return }
+        fullImageView.circleImageView.image = image
     }
 }
 

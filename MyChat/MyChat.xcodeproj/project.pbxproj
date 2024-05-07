@@ -44,6 +44,8 @@
 		549287FB2BE10FC800DD61EC /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549287FA2BE10FC800DD61EC /* SectionHeader.swift */; };
 		549287FD2BE1158100DD61EC /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 549287FC2BE1158100DD61EC /* users.json */; };
 		54A4BDAE2BEA299900496808 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDAD2BEA299900496808 /* UIApplication + Extension.swift */; };
+		54A4BDB02BEA2BB700496808 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDAF2BEA2BB700496808 /* StorageService.swift */; };
+		54A4BDB22BEA354000496808 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDB12BEA354000496808 /* UIImage + Extension.swift */; };
 		54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */; };
 		54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */; };
 		54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */; };
@@ -94,6 +96,8 @@
 		549287FA2BE10FC800DD61EC /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		549287FC2BE1158100DD61EC /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		54A4BDAD2BEA299900496808 /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
+		54A4BDAF2BEA2BB700496808 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		54A4BDB12BEA354000496808 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				5464433A2BE252A300450A76 /* UIViewController + Extension.swift */,
 				546443402BE2653200450A76 /* UIView + Extension.swift */,
 				54A4BDAD2BEA299900496808 /* UIApplication + Extension.swift */,
+				54A4BDB12BEA354000496808 /* UIImage + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				546B3CF52BE23E5400CDC881 /* Model */,
 				544A6D8A2BE6598D00E33595 /* AuthService.swift */,
 				544A6D8C2BE65A2800E33595 /* FirestoreService.swift */,
+				54A4BDAF2BEA2BB700496808 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				54F09E192BDFB80700D01DD2 /* OneLineTextField.swift in Sources */,
 				544A6D8F2BE65B5F00E33595 /* UserError.swift in Sources */,
 				549287FB2BE10FC800DD61EC /* SectionHeader.swift in Sources */,
+				54A4BDB02BEA2BB700496808 /* StorageService.swift in Sources */,
 				544A6D8B2BE6598D00E33595 /* AuthService.swift in Sources */,
 				545A016C2BE1047000F0E976 /* GradientView.swift in Sources */,
 				54F09E272BDFD15200D01DD2 /* MainTabBarController.swift in Sources */,
@@ -390,6 +397,7 @@
 				546443392BE2517600450A76 /* UserCell.swift in Sources */,
 				5464433B2BE252A300450A76 /* UIViewController + Extension.swift in Sources */,
 				549287F82BE10E2800DD61EC /* SelfConfiguringCell.swift in Sources */,
+				54A4BDB22BEA354000496808 /* UIImage + Extension.swift in Sources */,
 				54A4BDAE2BEA299900496808 /* UIApplication + Extension.swift in Sources */,
 				549287F62BE10DC000DD61EC /* WaitingChatCell.swift in Sources */,
 				5454D75B2BDBD889009E4685 /* UIColor + Extension.swift in Sources */,
