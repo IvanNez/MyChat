@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import GoogleSignIn
+import FirebaseCore
+import FirebaseAuth
 
 class AuthViewController: UIViewController {
     
@@ -40,6 +43,7 @@ private extension AuthViewController {
     func setupButton() {
         emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(signInGoogle), for: .touchUpInside)
     }
     
     func setupConstraints() {
@@ -88,6 +92,49 @@ private extension AuthViewController {
         present(loginVC, animated: true)
     }
     
+}
+
+// MARK: -- SignInWith Google
+private extension AuthViewController {
+   @objc func signInGoogle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { result, error in
+            guard error == nil else {
+                return
+            }
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential) { user, error in
+                guard let user else {
+                    return
+                }
+                FirestoreService.shared.getUserData(user: user.user) { result in
+                    switch result {
+                    case .success(let muser):
+                        let mainTabBar = MainTabBarController(currentUser: muser)
+                        mainTabBar.modalPresentationStyle = .fullScreen
+                        self.present(mainTabBar, animated: true)
+                    case .failure(_):
+                        self.present(SetupProfileViewController(currentUser: user.user), animated: true)
+                    }
+                }
+            }
+        }
+    }
 }
 
 #Preview("ViewController"){
