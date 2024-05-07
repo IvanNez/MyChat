@@ -49,6 +49,7 @@
 		54A4BDB42BEA420100496808 /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDB32BEA420100496808 /* ListenerService.swift */; };
 		54A4BDB72BEA46D200496808 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 54A4BDB62BEA46D200496808 /* SDWebImage */; };
 		54A4BDB92BEA46D200496808 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54A4BDB82BEA46D200496808 /* SDWebImageMapKit */; };
+		54A4BDBB2BEA51CF00496808 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDBA2BEA51CF00496808 /* MMessage.swift */; };
 		54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */; };
 		54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */; };
 		54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */; };
@@ -102,6 +103,7 @@
 		54A4BDAF2BEA2BB700496808 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		54A4BDB12BEA354000496808 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		54A4BDB32BEA420100496808 /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
+		54A4BDBA2BEA51CF00496808 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
 		54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				544A6D862BE6594900E33595 /* MChat.swift */,
 				544A6D882BE6596400E33595 /* MUser.swift */,
+				54A4BDBA2BEA51CF00496808 /* MMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				5454D75D2BDBD9C5009E4685 /* UILabel + Extension.swift in Sources */,
 				546443412BE2653200450A76 /* UIView + Extension.swift in Sources */,
 				544A6D872BE6594900E33595 /* MChat.swift in Sources */,
+				54A4BDBB2BEA51CF00496808 /* MMessage.swift in Sources */,
 				5454D75F2BDBDA1D009E4685 /* UIImageView + Extension.swift in Sources */,
 				54F09E212BDFCB2E00D01DD2 /* SegmentedControl + Extension.swift in Sources */,
 				546443392BE2517600450A76 /* UserCell.swift in Sources */,
