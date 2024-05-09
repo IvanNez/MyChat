@@ -12,10 +12,8 @@ import Firebase
 
 class PeopleViewController: UIViewController {
     
-//    let users = Bundle.main.decode([MUser].self, from: "users.json")
-    let users = [MUser]()
-//    private var usersListener: ListenerRegistration?
-    
+    var users = [MUser]()
+    private var usersListener: ListenerRegistration?
     var collectionView: UICollectionView! = nil
     var dataSourse: UICollectionViewDiffableDataSource<Section, MUser>?
     
@@ -41,9 +39,9 @@ class PeopleViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    deinit {
-//        usersListener?.remove()
-//    }
+    deinit {
+        usersListener?.remove()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +50,11 @@ class PeopleViewController: UIViewController {
     }
     
     func setup() {
+        observerUsers()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(signOutButtonTapped))
         setupSearchBar()
         setupCollectionView()
         createDataSourse()
-        reloadData(with: nil)
     }
 }
 
@@ -82,6 +80,7 @@ private extension PeopleViewController {
         
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         
+        collectionView.delegate = self
         view.addSubview(collectionView)
     }
     
@@ -131,6 +130,20 @@ private extension PeopleViewController {
 
 // MARK: -- Data
 private extension PeopleViewController  {
+    func observerUsers() {
+        usersListener = ListenerService.shared.usersObserve(users: users, completion: { result in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.reloadData(with: nil)
+            case .failure(let error):
+                let alert = UIAlertController(title: "Ошибка", message: error.localizedDescription , preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
+                self.present(alert, animated: true)
+            }
+        })
+    }
+    
      func createDataSourse() {
          dataSourse = UICollectionViewDiffableDataSource<Section, MUser>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell in
              guard let section = Section(rawValue: indexPath.section) else {
@@ -169,6 +182,15 @@ private extension PeopleViewController  {
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
+    }
+}
+
+// MARK: -- UICollectionViewDelegate
+extension PeopleViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSourse?.itemIdentifier(for: indexPath) else { return }
+        let profileVC = ProfileViewController(user: user)
+        present(profileVC, animated: true)
     }
 }
 
