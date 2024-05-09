@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct MChat: Hashable, Decodable {
     var friendUsername: String
@@ -19,6 +20,25 @@ struct MChat: Hashable, Decodable {
         rep["lastMessage"] = lastMessageContent
         rep["friendId"] = friendId
         return rep
+    }
+    
+    init?(document: QueryDocumentSnapshot) {
+        let data = document.data()
+        guard let friendUsername = data["friendUsername"] as? String,
+              let friendAvataStringURL = data["friendAvataStringURL"] as? String,
+              let lastMessageContent = data["lastMessage"] as? String,
+              let friendId = data["friendId"] as? String else { return nil }
+             
+        self.friendUsername = friendUsername
+        self.friendAvataStringURL = friendAvataStringURL
+        self.lastMessageContent = lastMessageContent
+        self.friendId = friendId
+    }
+    init(friendUsername: String, friendAvataStringURL: String, lastMessageContent: String, friendId: String) {
+        self.friendUsername = friendUsername
+        self.friendAvataStringURL = friendAvataStringURL
+        self.lastMessageContent = lastMessageContent
+        self.friendId = friendId
     }
     
     func hash(into hasher: inout Hasher) {

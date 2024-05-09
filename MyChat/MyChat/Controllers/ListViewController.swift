@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ListViewController: UIViewController {
     
     let activeChats = [MChat]()
-    let waitingChats = [MChat]()
+    var waitingChats = [MChat]()
+    
+    private var waitingChatsListener: ListenerRegistration?
     
     enum Section: Int, CaseIterable {
         case waitingChats
@@ -41,12 +44,17 @@ class ListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        waitingChatsListener?.remove()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
     func setup() {
+        listenerData()
         setupCollectionView()
         setupSearchBar()
         createDataSource()
@@ -77,6 +85,8 @@ private extension ListViewController {
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuseId)
         
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
+
+        collectionView.delegate = self
         
         view.addSubview(collectionView)
 
@@ -101,6 +111,23 @@ private extension ListViewController {
         config.interSectionSpacing = 20
         layout.configuration = config
         return layout
+    }
+    
+    func listenerData() {
+        waitingChatsListener = ListenerService.shared.waitingChatsObserve(chats: waitingChats, completion: { result in
+            switch result {
+            case .success(let chats):
+                if self.waitingChats != [], self.waitingChats.count <= chats.count {
+                    let chatRequestViewController = ChatRequestViewController(chat: chats.last!)
+                    chatRequestViewController.delegate = self
+                    self.present(chatRequestViewController, animated: true)
+                }
+                self.waitingChats = chats
+                self.reloadData()
+            case .failure(let error):
+                print("Ошибка! \(error.localizedDescription)")
+            }
+        })
     }
     
     func reloadData() {
@@ -189,6 +216,40 @@ extension ListViewController {
 extension ListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
+    }
+}
+
+// MARK: -- UICollectionViewDelegate
+extension ListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let chat = self.dataSourse?.itemIdentifier(for: indexPath) else { return }
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        
+        switch section {
+        case .waitingChats:
+            let chatRequestVC = ChatRequestViewController(chat: chat)
+            chatRequestVC.delegate = self
+            self.present(chatRequestVC, animated: true)
+        case .activeChats:
+            print("activechat")
+        }
+    }
+}
+
+extension ListViewController: WaitingChatsNavigation {
+    func removeWaitingChat(chat: MChat) {
+        FirestoreService.shared.deleteWaitingChat(chat: chat) { result in
+            switch result {
+            case .success():
+                print("delete \(chat)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func chatToActive(chat: MChat) {
+        print(#function)
     }
 }
 

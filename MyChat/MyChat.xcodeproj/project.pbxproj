@@ -50,6 +50,7 @@
 		54A4BDB72BEA46D200496808 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 54A4BDB62BEA46D200496808 /* SDWebImage */; };
 		54A4BDB92BEA46D200496808 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54A4BDB82BEA46D200496808 /* SDWebImageMapKit */; };
 		54A4BDBB2BEA51CF00496808 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDBA2BEA51CF00496808 /* MMessage.swift */; };
+		54A4BDC12BECDCC200496808 /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4BDC02BECDCC200496808 /* WaitingChatsNavigation.swift */; };
 		54F09E132BDFB21D00D01DD2 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */; };
 		54F09E152BDFB49E00D01DD2 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */; };
 		54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */; };
@@ -104,6 +105,7 @@
 		54A4BDB12BEA354000496808 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		54A4BDB32BEA420100496808 /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		54A4BDBA2BEA51CF00496808 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
+		54A4BDC02BECDCC200496808 /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
 		54F09E122BDFB21D00D01DD2 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		54F09E142BDFB49E00D01DD2 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		54F09E162BDFB6C800D01DD2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				549287F72BE10E2800DD61EC /* SelfConfiguringCell.swift */,
+				54A4BDC02BECDCC200496808 /* WaitingChatsNavigation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				54A4BDB02BEA2BB700496808 /* StorageService.swift in Sources */,
 				544A6D8B2BE6598D00E33595 /* AuthService.swift in Sources */,
 				545A016C2BE1047000F0E976 /* GradientView.swift in Sources */,
+				54A4BDC12BECDCC200496808 /* WaitingChatsNavigation.swift in Sources */,
 				54F09E272BDFD15200D01DD2 /* MainTabBarController.swift in Sources */,
 				54F4FD222BE399E800A1910D /* AuthError.swift in Sources */,
 				54F09E172BDFB6C800D01DD2 /* SignUpViewController.swift in Sources */,

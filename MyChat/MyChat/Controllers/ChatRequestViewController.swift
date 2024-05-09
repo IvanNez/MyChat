@@ -16,6 +16,21 @@ class ChatRequestViewController: UIViewController {
     let acceptButton = UIButton(title: "ACCEPT", titleColor: .white, backgroundColor: .black, font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     let denyButton = UIButton(title: "Deny", titleColor: UIColor(red: 213/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1/1.0), backgroundColor: .mainWhite(), font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     
+    var delegate: WaitingChatsNavigation?
+    
+    private var chat: MChat
+    
+    init(chat: MChat) {
+        self.chat = chat
+        nameLabel.text = chat.friendUsername
+        imageView.sd_setImage(with: URL(string: chat.friendAvataStringURL))
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -27,6 +42,7 @@ class ChatRequestViewController: UIViewController {
     }
 }
 
+// MARK: -- Setup layout
 private extension ChatRequestViewController {
     func setup() {
         view.backgroundColor = .mainWhite()
@@ -46,6 +62,8 @@ private extension ChatRequestViewController {
         containerView.backgroundColor = .mainWhite()
         containerView.layer.cornerRadius = 30
         
+        denyButton.addTarget(self, action: #selector(denyButtonTapped), for: .touchUpInside)
+        acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
     }
     
     func setupConstraints() {
@@ -88,6 +106,17 @@ private extension ChatRequestViewController {
     }
 }
 
-#Preview("ChatRequestViewController"){
-    ChatRequestViewController()
+// MARK: -- OBJC
+private extension ChatRequestViewController {
+    @objc func denyButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.removeWaitingChat(chat: self.chat)
+        }
+    }
+    
+    @objc func acceptButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.chatToActive(chat: self.chat)
+        }
+    }
 }
